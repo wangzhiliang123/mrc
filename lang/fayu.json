@@ -15,7 +15,7 @@
 	"last_win": "Ultimate Winner",
 	"rule": "Règle d ouverture",
 	"jackpot": "Pool",
-	"day_liu": "10% des entrées quotidiennes dans le podium et 5% dans le podium.",
+	"day_liu": "Quinze pour cent des entrées quotidiennes dans la poêle, un tiers dans la poêle et deux tiers dans la grande poêle.",
 	"small": "Pool",
 	"small_rule": "Les primes sont ouvertes toutes les 24 heures, 1\/3 Récompenser le meilleur promoteur du jour., 1\/3 au hasard aux cinq nouveaux joueurs chanceux de la journée et 1\/3 au hasard aux dix joueurs chanceux qui ont participé plus tôt.",
 	"big": "Grand Prix",
@@ -69,6 +69,8 @@
 	"back_index": "Page d 'accuei",
 	"day_open_win": "Aujourd 'hui.",
 	"first_prize": "Premier prix",
+	"second_prize": "Prix de deuxième classe",
+	"third_prize": "Troisième classe",
 	"person": "Homme",
 	"draw_results": "Résultats des précédents prix",
 	"ten_win": "Les 10 derniers prix.",
@@ -102,7 +104,7 @@
 	"guize_5": "Le prix récompense l 'ETH qui a été décerné pour la participation au concours.",
 	"guize_6": "Si une personne remporte la totalité du prix du tour, le prix sera partagé à parts égales si plusieurs personnes gagnent.",
 	"guize_7": "Si aucun des candidats n’a remporté le tour, la ETH obtenue au cours du tour est entièrement versée au pool de dividendes.",
-	"guize_8": "Les résultats de cet appel à propositions, qui sont équitables, impartiaux et publics, ne peuvent être manipulés artificiellement.",
+	"guize_8": "Ce jeu est juste, juste, ouvert et récompensé.",
 	"static_money": "Gains statiques",
 	"put_sum": "Quantité d’intrants",
 	"game_rules": "Règles du jeu",
@@ -111,5 +113,6 @@
 	"group_level3":"Grade3",
 	"group_level4":"Grade4",
  	"jiedian":"Statistiques des noeuds",
- 	"shujutongji":"Statistiques des données"
+ 	"shujutongji":"Statistiques des données",
+  	"meici":"Chaque fois"
 }

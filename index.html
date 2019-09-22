@@ -32,6 +32,17 @@
 					</div>
 				</div>
 			</div>
+			<div class="header-logo">
+				<img src="img/logo_home.png">
+			</div>
+			<div class="language">
+				<div class="language-item" v-for="item in lang" @click="setCurrentLang(item)">
+					<svg class="icon" aria-hidden="true">
+						<use :xlink:href="item.icon"></use>
+					</svg>
+					<span>{{item.label}}</span>
+				</div>
+			</div>
 		</header>
 		<div class="logo">
 			<img src="img/logo_home.png">
@@ -251,7 +262,7 @@
 			</div>
 			<a :href="`betting.html?lang=${currentLang.value}`">
 				<div class="betting">
-					<p>({{price.price}}/次)</p>
+					<p>({{price.price}}/{{translate.meici}})</p>
 					<p>{{translate.put}}</p>
 				</div>
 			</a>
@@ -298,17 +309,17 @@
 		</div>
 		<div class="tab">
 			<div class="tab-header">
-				<div :class="['tab-header-title',{active:activeTabIndex==0}]" @click="activeTabIndex=0">
+				<div :class="['tab-header-title',{active:activeTabIndex==0}]" @click="visibleProfit=true">
 					{{translate.my_win}}</div>
-				<div :class="['tab-header-title',{active:activeTabIndex==1}]" @click="activeTabIndex=1">
+				<div :class="['tab-header-title',{active:activeTabIndex==1}]" @click="visibleStatistics=true">
 					{{translate.statistics}}</div>
-				<div :class="['tab-header-title',{active:activeTabIndex==2}]" @click="activeTabIndex=2">
+				<div :class="['tab-header-title',{active:activeTabIndex==2}]" @click="visibleMyTeam=true">
 					{{translate.my_team}}</div>
-				<div :class="['tab-header-title',{active:activeTabIndex==3}]" @click="activeTabIndex=3">
+				<div :class="['tab-header-title',{active:activeTabIndex==3}]" @click="visiblePoint=true">
 					{{translate.jiedian}}</div>
 			</div>
 			<!-- 我的收益 -->
-			<div class="tab-content" v-show="activeTabIndex==0">
+			<!-- <div class="tab-content" v-show="activeTabIndex==0">
 				<div class="tab-list">
 					<div class="item">
 						<div class="label">
@@ -397,7 +408,6 @@
 						</div>
 						<div class="value">
 							<span class="number">{{myProfit.multiple}}</span>
-							<!-- <span>倍</span> -->
 						</div>
 					</div>
 					<div class="item">
@@ -452,9 +462,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- 统计 -->
-			<div class="tab-content" v-show="activeTabIndex==1">
+			<!-- <div class="tab-content" v-show="activeTabIndex==1">
 				<div class="tab-list">
 					<div class="item">
 						<div class="label">
@@ -497,9 +507,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- 我的团队 -->
-			<div class="tab-content" v-show="activeTabIndex==2">
+			<!-- <div class="tab-content" v-show="activeTabIndex==2">
 				<div class="tab-section">
 					<div class="tab-section-header">
 						<div class="tab-section-title" v-if="myTeam.upgrade">
@@ -561,9 +571,9 @@
 					</div>
 				</div>
 				<div class="copy">{{translate.copy}}</div>
-			</div>
+			</div> -->
 			<!-- vip统计 -->
-			<div class="tab-content" v-show="activeTabIndex==3">
+			<!-- <div class="tab-content" v-show="activeTabIndex==3">
 				<div class="tab-list">
 					<div class="item">
 						<div class="label">
@@ -598,6 +608,330 @@
 						</div>
 					</div>
 				</div>
+			</div> -->
+		</div>
+		<!-- 我的收益 -->
+		<div :class="['cover',{active:visibleProfit}]">
+			<div class="alert" style="background:#233163">
+				<div class="alert-header">
+					<div class="alert-title">{{translate.my_win}}</div>
+				</div>
+				<div class="alert-content">
+					<div class="tab-list">
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.next_win}}</span>
+							</div>
+							<div class="value">
+								<span>{{myProfit.hour}}</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.yuqi}}</span>
+							</div>
+							<div class="value">
+								<button @click="settlement">{{translate.settlement}}</button>
+								<span class="number">{{myProfit.expect_profit}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.profit_money}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{myProfit.static_money}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.child_money}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{myProfit.generalize_money}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.node_money}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{myProfit.level_money}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.win_money}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{myProfit.win_money}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.money_sum}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{myProfit.all_money}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.put_sum}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{myProfit.order_money}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.multiple}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{myProfit.multiple}}</span>
+								<!-- <span>倍</span> -->
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.multiple_differ}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{myProfit.out_money}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.guess_money}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{myProfit.guess_money}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.take_count}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{myProfit.yi_ti}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.notake_count}}</span>
+							</div>
+							<div class="value">
+								<button @click="visibleCash=true">{{translate.withdraw}}</button>
+								<span class="number">{{myProfit.wei_ti}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.day_book}}</span>
+							</div>
+							<div class="value">
+								<button
+									@click="window.location.href=`profit.html?lang=${currentLang.value}`">{{translate.look_details}}</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="close-btn" @click="visibleProfit=false"></div>
+			</div>
+		</div>
+		<!-- 统计 -->
+		<div :class="['cover',{active:visibleStatistics}]">
+			<div class="alert" style="background:#233163">
+				<div class="alert-header">
+					<div class="alert-title">{{translate.statistics}}</div>
+				</div>
+				<div class="alert-content">
+					<div class="tab-list">
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.big_sum}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{statistic.big_money}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.small_sum}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{statistic.small_sum_money}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.pcc_bili}}</span>
+							</div>
+							<div class="value">
+								<span class="number">1ETH:{{statistic.proportion}}</span>
+								<span>EWF</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
+								<span>{{translate.unset_sum}}</span>
+							</div>
+							<div class="value">
+								<span class="number">{{statistic.pccnum}}</span>
+								<span>EWF</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="close-btn" @click="visibleStatistics=false"></div>
+			</div>
+		</div>
+		<!-- 我的团队 -->
+		<div :class="['cover',{active:visibleMyTeam}]">
+			<div class="alert" style="background:#233163">
+				<div class="alert-header">
+					<div class="alert-title">{{translate.my_team}}</div>
+				</div>
+				<div class="alert-content">
+					<div class="tab-section">
+						<div class="tab-section-header">
+							<div class="tab-section-title" v-if="myTeam.upgrade">
+								<i></i>
+								<span>{{translate.my_grade}}</span>
+								<img src="img/vip0.png" v-if="myTeam.upgrade.level==0">
+								<img src="img/vip1.png" v-if="myTeam.upgrade.level==1">
+								<img src="img/vip2.png" v-if="myTeam.upgrade.level==2">
+								<img src="img/vip3.png" v-if="myTeam.upgrade.level==3">
+								<img src="img/vip4.png" v-if="myTeam.upgrade.level==4">
+							</div>
+							<div class="publish-count">
+								<span>{{translate.child_count}}:</span>
+								<span class="number">{{myTeam.child_count}}</span>
+							</div>
+						</div>
+						<div v-if="myTeam.upgrade" class="tips">{{myTeam.upgrade.msg}}</div>
+					</div>
+					<div class="tab-section">
+						<div class="tab-section-header">
+							<div class="tab-section-title">
+								<i></i>
+								<span>{{translate.team_please}}</span>
+							</div>
+						</div>
+						<div class="tab-list">
+							<div class="item">
+								<div class="label">
+									<img src="img/vip1.png">{{translate.group_level1}}
+								</div>
+								<div class="value">
+									<span class="number">{{myTeam.vip_1}}</span>
+								</div>
+							</div>
+							<div class="item">
+								<div class="label">
+									<img src="img/vip2.png">{{translate.group_level2}}
+								</div>
+								<div class="value">
+									<span class="number">{{myTeam.vip_2}}</span>
+								</div>
+							</div>
+							<div class="item">
+								<div class="label">
+									<img src="img/vip3.png">{{translate.group_level3}}
+								</div>
+								<div class="value">
+									<span class="number">{{myTeam.vip_3}}</span>
+								</div>
+							</div>
+							<div class="item">
+								<div class="label">
+									<img src="img/vip4.png">{{translate.group_level4}}
+								</div>
+								<div class="value">
+									<span class="number">{{myTeam.vip_4}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="copy" @click="copyLink">{{translate.copy}}</div>
+				</div>
+				<div class="close-btn" @click="visibleMyTeam=false"></div>
+			</div>
+		</div>
+		<!-- 节点统计 -->
+		<div :class="['cover',{active:visiblePoint}]">
+			<div class="alert" style="background:#233163">
+				<div class="alert-header">
+					<div class="alert-title">{{translate.jiedian}}</div>
+				</div>
+				<div class="alert-content">
+					<div class="tab-list">
+						<div class="item">
+							<div class="label">
+								<img src="img/vip1.png">{{translate.group_level1}}
+							</div>
+							<div class="value">
+								<span class="number">{{vip.allvip_1}}</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<img src="img/vip2.png">{{translate.group_level2}}
+							</div>
+							<div class="value">
+								<span class="number">{{vip.allvip_2}}</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<img src="img/vip3.png">{{translate.group_level3}}
+							</div>
+							<div class="value">
+								<span class="number">{{vip.allvip_3}}</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<img src="img/vip4.png">{{translate.group_level4}}
+							</div>
+							<div class="value">
+								<span class="number">{{vip.allvip_4}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="close-btn" @click="visiblePoint=false"></div>
 			</div>
 		</div>
 		<!-- 开奖规则 -->
@@ -730,7 +1064,7 @@
 					</div>
 					<div class="submit" id="gas-send" @click="purchase">{{translate.send}}ETH</div>
 				</div>
-				<div class="close-btn" @click="visiblePurchase=false"></div>
+				<div class="close-btn" @click="visiblePurchase=false;value=''"></div>
 			</div>
 		</div>
 		<!-- 立即参与 -->
@@ -768,7 +1102,7 @@
 					</div>
 					<div class="submit" id="join-send" @click="check">{{translate.send}}ETH</div>
 				</div>
-				<div class="close-btn" @click="visibleJoin=false"></div>
+				<div class="close-btn" @click="visibleJoin=false;value=''"></div>
 			</div>
 		</div>
 		<!-- 邀请码 -->
@@ -897,8 +1231,12 @@
 				visibleJoin: false,
 				visibleLang: false,
 				visibleLotteryRule: false,
+				visibleMyTeam: false,
 				visiblePlayRule: false,
+				visiblePoint: false,
+				visibleProfit: false,
 				visiblePurchase: false,
+				visibleStatistics: false,
 				vip: {},
 			},
 			computed: {},
@@ -914,6 +1252,7 @@
 				setCurrentLang(item) {
 					this.currentLang.label = item.label
 					this.currentLang.value = item.value
+					window.localStorage.setItem('lang', item.value)
 					this.getLang(item.value)
 					this.initApp()
 				},
@@ -1097,6 +1436,9 @@
 						value: this.value,
 					}
 					let response = await this.post(url, param)
+					if (response.status) {
+						this.value = ''
+					}
 					alert(response.info)
 				},
 				purchase() {
@@ -1114,6 +1456,9 @@
 								value: this.value,
 							}
 							let response = await this.post(url, param)
+							if (response.status) {
+								this.value = ''
+							}
 							alert(response.info)
 						}
 					})
@@ -1133,7 +1478,7 @@
 					let url = 'https://ethwinner.pro1.lnkj1.com/Api/Index/doLogin'
 					let param = {
 						address: web3.eth.defaultAccount,
-						parent_address: this.getQuery().parent_address
+						parent_address: this.getQuery().r
 					}
 					let response = await this.post(url, param)
 					this.user_id = response.data.user_id
@@ -1165,7 +1510,10 @@
 				}
 			},
 			created() {
-				let lang = this.getQuery().lang
+				let lang = window.localStorage.getItem('lang')
+				if (!lang) {
+					lang = this.getQuery().lang
+				}
 				if (lang) {
 					this.getLang(lang)
 				} else {

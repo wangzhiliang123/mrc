@@ -17,7 +17,7 @@
 }
 
 .info {
-	width: 200px;
+	min-width: 200px;
 	height: 30px;
 	margin: 15px auto;
 	text-align: center;

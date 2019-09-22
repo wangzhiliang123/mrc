@@ -15,7 +15,7 @@
 	"last_win": "The ultimate winner",
 	"rule": "Award Rules",
 	"jackpot": "Jackpot",
-	"day_liu": "Ten percent of the daily inflows go to the Grand Prize Pool and five percent to the Small Prize Pool.",
+	"day_liu": "15% of the daily inflows go into the pool, 1/3 of which go into the pool and 2/3 into the pool.",
 	"small": "Small Prize Pool",
 	"small_rule": "Every 24 hours, 1\/3 Award the best promoter of the day, 1\/3 awards are given to the five lucky players newly added on the day, and the remaining 1\/3 awards are given to the 10 lucky players who participated in the early stage. ",
 	"big": "Grand Prize Pool",
@@ -69,6 +69,8 @@
 	"back_index": "Return to Home",
 	"day_open_win": "Back",
 	"first_prize": "First prize",
+	"second_prize": "Second prize",
+	"third_prize": "Third prize",
 	"person": "person",
 	"draw_results": "Previous award results",
 	"ten_win": "Result of the last 10 awards",
@@ -102,7 +104,7 @@
 	"guize_5": "The prize award will be the ETH awarded in this round of guessing.",
 	"guize_6": "If one person wins this round, if more than one person wins, the prize will be divided equally.",
 	"guize_7": "If no one has won the prize in this round, all the gains of this round will enter the bonus pool.",
-	"guize_8": "This contest game fair, fair, open lottery results can not be tampered with artificially.",
+	"guize_8": "This game is fair, fair, open and award-winning results can not be artificially tampered with.",
 	"static_money": "The static gains",
 	"put_sum": "Input the number",
 	"game_rules": "Rules of the game",
@@ -111,5 +113,6 @@
 	"group_level3":"Level3",
 	"group_level4":"Level4",
   	"jiedian":"Node statistics",
-  	"shujutongji":"data statistics"
+  	"shujutongji":"data statistics",
+  	"meici":"every"
 }
