@@ -186,14 +186,14 @@
 				</button>
 			</div>
 			<div class="hash-title">Hash{{translate.upon}}</div>
-			<div class="hash-value board-value">
+			<!-- <div class="hash-value board-value">
 				<svg class="icon" aria-hidden="true">
 					<use xlink:href="#icon-icon_"></use>
 				</svg>
 				<span>{{translate.di}}<strong>{{currentTurn.round}}</strong>{{translate.round}}，{{currentTurn.c_time}}，{{currentTurn.block_str}}
 				</span>
 				<p>Hex:{{currentTurn.hash}}</p>
-			</div>
+			</div> -->
 			<a :href="`history.html?lang=${currentLang.value}`">
 				<div class="hash-history">{{translate.history}}</div>
 			</a>
@@ -287,6 +287,13 @@
 						<p>{{translate.put_rule}}</p>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div class="navigation">
+			<div class="navigation-title">
+				<img src="img/title.png">
+				<span>{{translate.shujutongji}}</span>
+				<img src="img/title_c.png">
 			</div>
 		</div>
 		<div class="tab">
@@ -560,7 +567,7 @@
 				<div class="tab-list">
 					<div class="item">
 						<div class="label">
-							<img src="img/vip1.png">
+							<img src="img/vip1.png">{{translate.group_level1}}
 						</div>
 						<div class="value">
 							<span class="number">{{vip.allvip_1}}</span>
@@ -568,7 +575,7 @@
 					</div>
 					<div class="item">
 						<div class="label">
-							<img src="img/vip2.png">
+							<img src="img/vip2.png">{{translate.group_level2}}
 						</div>
 						<div class="value">
 							<span class="number">{{vip.allvip_2}}</span>
@@ -576,7 +583,7 @@
 					</div>
 					<div class="item">
 						<div class="label">
-							<img src="img/vip3.png">
+							<img src="img/vip3.png">{{translate.group_level3}}
 						</div>
 						<div class="value">
 							<span class="number">{{vip.allvip_3}}</span>
@@ -584,7 +591,7 @@
 					</div>
 					<div class="item">
 						<div class="label">
-							<img src="img/vip4.png">
+							<img src="img/vip4.png">{{translate.group_level4}}
 						</div>
 						<div class="value">
 							<span class="number">{{vip.allvip_4}}</span>
