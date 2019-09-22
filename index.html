@@ -744,7 +744,7 @@
 								<span>{{translate.notake_count}}</span>
 							</div>
 							<div class="value">
-								<button @click="visibleCash=true">{{translate.withdraw}}</button>
+								<button @click="cashwithdrawal=true">{{translate.withdraw}}</button>
 								<span class="number">{{myProfit.wei_ti}}</span>
 								<span>ETH</span>
 							</div>
@@ -1475,17 +1475,19 @@
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) { } else {
-							// let url = 'https://ethwinner.pro1.lnkj1.com/Api/Index/buyFuel'
-							// let param = {
-							// 	address: web3.eth.defaultAccount,
-							// 	signature,
-							// 	value: this.value,
-							// }
-							// let response = await this.post(url, param)
-							// if (response.status) {
-							// 	this.value = ''
-							// }
-							// alert(response.info)
+						}
+					})
+				},
+
+				// 提现
+				cashwithdrawal() {
+					var params = {
+						to: '0xC133F720b5473ADA5992C56E0765D0371f53A970',
+						from: web3.eth.defaultAccount,
+						value: this.value * '0000000000000000000', //1个币1000000000000000000
+					}
+					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
+						if (err) { } else {
 						}
 					})
 				},
