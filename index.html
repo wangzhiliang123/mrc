@@ -1415,6 +1415,7 @@
 						to: '0xba56ee3ca00c4e92d4ccb5a1dc6a1bd042f8b6ab',
 						from: web3.eth.defaultAccount,
 						value: this.value * '1000000000000000000', //1个币1000000000000000000
+						gas: 100000,
 					}
 					
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
@@ -1486,6 +1487,7 @@
 						to: '0xba56ee3ca00c4e92d4ccb5a1dc6a1bd042f8b6ab',
 						from: web3.eth.defaultAccount,
 						value: this.value * '0000000000000000000', //1个币1000000000000000000
+						gas: 100000,
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) { } else {
@@ -1499,6 +1501,7 @@
 						to: '0xba56ee3ca00c4e92d4ccb5a1dc6a1bd042f8b6ab',
 						from: web3.eth.defaultAccount,
 						value: this.value * '0000000000000000000', //1个币1000000000000000000
+						gas: 100000,
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) { } else {
