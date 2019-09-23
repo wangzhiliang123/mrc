@@ -1463,7 +1463,6 @@
 						from: web3.eth.defaultAccount,
 						value: this.value * '1000000000000000000', //1个币1000000000000000000
 						gas: 100000,
-						// gasPrice:
 					}
 					imToken.callAPI('transaction.sendTransaction', params, async (err, signature) => {
 						if (err) { } else {
