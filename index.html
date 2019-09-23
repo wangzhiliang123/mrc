@@ -1447,8 +1447,10 @@
 					let response = await this.post(url, param)
 					if (response.status == 0) {
 						alert(response.info)
+					} else{
+						this.join()
 					}
-					this.join()
+					
 				},
 				// 购买燃料
 				purchase() {
