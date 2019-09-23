@@ -1418,26 +1418,15 @@
 					
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) { } else {
-							// let url = 'https://ethwinner.pro1.lnkj1.com/Api/Index/buyFuel'
-							// let param = {
-							// 	address: web3.eth.defaultAccount,
-							// 	signature,
-							// 	value: this.value,
-							// }
-							// let response = await this.post(url, param)
-							// // alert(response.info)
-							// if (response.status) {
-							// 	this.buyOrder()
-							// }
-							let url = 'https://ethwinner.pro1.lnkj1.com/Api/Index/buyOrder'
+							let url = 'https://ethwinner.pro1.lnkj1.com/Api/Index/isoutm'
 							let param = {
-								user_id: this.user_id,
-								value: this.value,
+								address: web3.eth.defaultAccount,
 							}
 							let response = await this.post(url, param)
-							// if (response.status) {
-							// 	alert(response.info)
-							// }
+							// alert(response.info)
+							if (response.status) {
+								this.buyOrder()
+							}
 						}
 					})
 				},
@@ -1448,10 +1437,6 @@
 						value: this.value,
 					}
 					let response = await this.post(url, param)
-					if (response.status) {
-						this.value = ''
-					}
-					alert(response.info)
 				},
 				// 购买燃料
 				purchase() {
