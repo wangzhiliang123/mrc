@@ -1415,10 +1415,11 @@
 					let param = {
 						address: web3.eth.defaultAccount,
 					}
-					let response = await this.post(url1, param)
+					let response = this.post(url1, param)
 					// alert(response.info)
 					if (response.status == 0) {
 						alert(response.info)
+						return false
 					}
 
 					var params = {
