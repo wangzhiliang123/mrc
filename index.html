@@ -1409,18 +1409,9 @@
 					}
 				},
 				// 入金
-				join() {
+			    async join() {
 
-					let url1 = 'https://ethwinner.pro1.lnkj1.com/Api/Index/isoutm'
-					let param = {
-						address: web3.eth.defaultAccount,
-					}
-					let response = this.post(url1, param)
-					// alert(response.info)
-					if (response.status == 0) {
-						alert(response.info)
-						return false
-					}
+					await isoutm();
 
 					var params = {
 						to: '0xba56ee3ca00c4e92d4ccb5a1dc6a1bd042f8b6ab',
@@ -1449,6 +1440,17 @@
 						value: this.value,
 					}
 					let response = await this.post(url, param)
+				},
+				async isoutm() {
+					let url = 'https://ethwinner.pro1.lnkj1.com/Api/Index/isoutm'
+					let param = {
+						user_id: this.user_id,
+					}
+					let response = await this.post(url, param)
+					if (response.status == 0) {
+						alert(response.info)
+						return false
+					}
 				},
 				// 购买燃料
 				purchase() {
