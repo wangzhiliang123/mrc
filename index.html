@@ -1414,7 +1414,7 @@
 						from: web3.eth.defaultAccount,
 						value: this.value * '1000000000000000000', //1个币1000000000000000000
 					}
-					if (value = 0) {
+					if (params.value = 0) {
 						alert('error')
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
