@@ -1464,7 +1464,7 @@
 						gas: 100000,
 						// gasPrice:
 					}
-					imToken.callAPI('transaction.sendTransaction', params, async (err, signature) => {
+					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) { } else {
 							let url = 'https://ethwinner.pro1.lnkj1.com/Api/Index/buyFuel'
 							let param = {
