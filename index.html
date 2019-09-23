@@ -1403,16 +1403,14 @@
 					}
 					let response = await this.post(url, param)
 					if (response.status) {
-						this.join()
+						this.isoutm()
+						// this.join()
 					} else {
 						alert(response.info)
 					}
 				},
 				// 入金
-			    async join() {
-
-					await isoutm();
-
+			    join() {
 					var params = {
 						to: '0xba56ee3ca00c4e92d4ccb5a1dc6a1bd042f8b6ab',
 						from: web3.eth.defaultAccount,
@@ -1449,8 +1447,8 @@
 					let response = await this.post(url, param)
 					if (response.status == 0) {
 						alert(response.info)
-						return false
 					}
+					this.join()
 				},
 				// 购买燃料
 				purchase() {
