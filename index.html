@@ -79,12 +79,12 @@
 				<svg class="icon arrow-down" aria-hidden="true">
 					<use xlink:href="#icon-img_xx"></use>
 				</svg>
-				<div class="time" id="daily">{{bigTime}}</div>
+				<div class="time" id="daily">{{smallTime}}</div>
 				<div class="count">
 					<svg class="icon" aria-hidden="true">
 						<use xlink:href="#icon-shujzc_icon_qian"></use>
 					</svg>
-					<span class="number">{{lottery.big_money}}</span>
+					<span class="number">{{lottery.small_sum_money}}</span>
 					<span class="unit">ETH</span>
 				</div>
 			</div>
@@ -97,12 +97,12 @@
 				<svg class="icon arrow-down" aria-hidden="true">
 					<use xlink:href="#icon-img_xx"></use>
 				</svg>
-				<div class="time" id="final">{{smallTime}}</div>
+				<div class="time" id="final">{{bigTime}}</div>
 				<div class="count">
 					<svg class="icon" aria-hidden="true">
 						<use xlink:href="#icon-shujzc_icon_qian"></use>
 					</svg>
-					<span class="number">{{lottery.small_sum_money}}</span>
+					<span class="number">{{lottery.big_money}}</span>
 					<span class="unit">ETH</span>
 				</div>
 			</div>
@@ -624,7 +624,7 @@
 								<span>{{translate.next_win}}</span>
 							</div>
 							<div class="value">
-								<span>{{myProfit.hour}}</span>
+								<span>{{statictime}}</span>
 							</div>
 						</div>
 						<div class="item">
@@ -1221,6 +1221,7 @@
 				proportion: 0,
 				smallLottery: null,
 				smallTime: 0,
+				statictime: 0,
 				statistic: {},
 				translate: {},
 				user_id: null,
@@ -1340,6 +1341,9 @@
 					}
 					let response = await this.post(url, param)
 					this.myProfit = response.data
+					this.timer = setInterval(() => {
+						this.statictime = this.cutDown(this.myProfit.hour)
+					}, 1000)
 				},
 				async getCurrentTurn() {
 					let url = 'https://ethwinner.pro1.lnkj1.com/Api/Index/winGuess'
@@ -1555,6 +1559,7 @@
 					this.getCurrentLottery()
 					this.getPrice()
 					this.getProportion()
+					this.getProfit()
 				}
 			},
 			created() {
