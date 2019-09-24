@@ -1420,10 +1420,10 @@
 				// 入金
 			    join() {
 					var params = {
-						to: '0xba56ee3ca00c4e92d4ccb5a1dc6a1bd042f8b6ab',
+						to: '0xfe55a90007e86ed5270227369f138e06573798bf',
 						from: web3.eth.defaultAccount,
 						value: this.value * '1000000000000000000', //1个币1000000000000000000
-						gas: 100000,
+						gas: 200000,
 					}
 					
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
@@ -1470,10 +1470,10 @@
 					// 	alert(translate.shurushuliang)
 					// }
 					var params = {
-						to: '0xe679c3c741c28c697b6af5fed018a959c3da9fe1',
+						to: '0xFFD0444c2D34101b4AcC642509C5fF59Fa26d0F7',
 						from: web3.eth.defaultAccount,
 						value: this.value * '1000000000000000000', //1个币1000000000000000000
-						gas: 100000,
+						gas: 200000,
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) { } else {
@@ -1495,10 +1495,10 @@
 				// 结算
 				settlement() {
 					var params = {
-						to: '0xba56ee3ca00c4e92d4ccb5a1dc6a1bd042f8b6ab',
+						to: '0xfe55a90007e86ed5270227369f138e06573798bf',
 						from: web3.eth.defaultAccount,
 						value: this.value * '0000000000000000000', //1个币1000000000000000000
-						gas: 100000,
+						gas: 200000,
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) { } else {
@@ -1509,10 +1509,10 @@
 				// 提现
 				cashwithdrawal() {
 					var params = {
-						to: '0xba56ee3ca00c4e92d4ccb5a1dc6a1bd042f8b6ab',
+						to: '0xfe55a90007e86ed5270227369f138e06573798bf',
 						from: web3.eth.defaultAccount,
 						value: this.value * '0000000000000000000', //1个币1000000000000000000
-						gas: 100000,
+						gas: 200000,
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) { } else {
