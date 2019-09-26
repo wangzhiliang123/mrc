@@ -318,297 +318,6 @@
 				<div :class="['tab-header-title',{active:activeTabIndex==3}]" @click="visiblePoint=true">
 					{{translate.jiedian}}</div>
 			</div>
-			<!-- 我的收益 -->
-			<!-- <div class="tab-content" v-show="activeTabIndex==0">
-				<div class="tab-list">
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.next_win}}</span>
-						</div>
-						<div class="value">
-							<span>{{myProfit.hour}}</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.yuqi}}</span>
-						</div>
-						<div class="value">
-							<button @click="settlement">{{translate.settlement}}</button>
-							<span class="number">{{myProfit.expect_profit}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.profit_money}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{myProfit.static_money}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.child_money}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{myProfit.generalize_money}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.node_money}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{myProfit.level_money}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.win_money}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{myProfit.win_money}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.money_sum}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{myProfit.all_money}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.put_sum}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{myProfit.order_money}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.multiple}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{myProfit.multiple}}</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.multiple_differ}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{myProfit.out_money}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.guess_money}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{myProfit.guess_money}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.take_count}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{myProfit.yi_ti}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.notake_count}}</span>
-						</div>
-						<div class="value">
-							<button @click="visibleCash=true">{{translate.withdraw}}</button>
-							<span class="number">{{myProfit.wei_ti}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.day_book}}</span>
-						</div>
-						<div class="value">
-							<button
-								@click="window.location.href=`profit.html?lang=${currentLang.value}`">{{translate.look_details}}</button>
-						</div>
-					</div>
-				</div>
-			</div> -->
-			<!-- 统计 -->
-			<!-- <div class="tab-content" v-show="activeTabIndex==1">
-				<div class="tab-list">
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.big_sum}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{statistic.big_money}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.small_sum}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{statistic.small_sum_money}}</span>
-							<span>ETH</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.pcc_bili}}</span>
-						</div>
-						<div class="value">
-							<span class="number">1ETH:{{statistic.proportion}}</span>
-							<span>EWF</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<i></i>
-							<span>{{translate.unset_sum}}</span>
-						</div>
-						<div class="value">
-							<span class="number">{{statistic.pccnum}}</span>
-							<span>EWF</span>
-						</div>
-					</div>
-				</div>
-			</div> -->
-			<!-- 我的团队 -->
-			<!-- <div class="tab-content" v-show="activeTabIndex==2">
-				<div class="tab-section">
-					<div class="tab-section-header">
-						<div class="tab-section-title" v-if="myTeam.upgrade">
-							<i></i>
-							<span>{{translate.my_grade}}</span>
-							<img src="img/vip0.png" v-if="myTeam.upgrade.level==0">
-							<img src="img/vip1.png" v-if="myTeam.upgrade.level==1">
-							<img src="img/vip2.png" v-if="myTeam.upgrade.level==2">
-							<img src="img/vip3.png" v-if="myTeam.upgrade.level==3">
-							<img src="img/vip4.png" v-if="myTeam.upgrade.level==4">
-						</div>
-						<div class="publish-count">
-							<span>{{translate.child_count}}:</span>
-							<span class="number">{{myTeam.child_count}}</span>
-						</div>
-					</div>
-					<div v-if="myTeam.upgrade" class="tips">{{myTeam.upgrade.msg}}</div>
-				</div>
-				<div class="tab-section">
-					<div class="tab-section-header">
-						<div class="tab-section-title">
-							<i></i>
-							<span>{{translate.team_please}}</span>
-						</div>
-					</div>
-					<div class="tab-list">
-						<div class="item">
-							<div class="label">
-								<img src="img/vip1.png">{{translate.group_level1}}
-							</div>
-							<div class="value">
-								<span class="number">{{myTeam.vip_1}}</span>
-							</div>
-						</div>
-						<div class="item">
-							<div class="label">
-								<img src="img/vip2.png">{{translate.group_level2}}
-							</div>
-							<div class="value">
-								<span class="number">{{myTeam.vip_2}}</span>
-							</div>
-						</div>
-						<div class="item">
-							<div class="label">
-								<img src="img/vip3.png">{{translate.group_level3}}
-							</div>
-							<div class="value">
-								<span class="number">{{myTeam.vip_3}}</span>
-							</div>
-						</div>
-						<div class="item">
-							<div class="label">
-								<img src="img/vip4.png">{{translate.group_level4}}
-							</div>
-							<div class="value">
-								<span class="number">{{myTeam.vip_4}}</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="copy">{{translate.copy}}</div>
-			</div> -->
-			<!-- vip统计 -->
-			<!-- <div class="tab-content" v-show="activeTabIndex==3">
-				<div class="tab-list">
-					<div class="item">
-						<div class="label">
-							<img src="img/vip1.png">{{translate.group_level1}}
-						</div>
-						<div class="value">
-							<span class="number">{{vip.allvip_1}}</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<img src="img/vip2.png">{{translate.group_level2}}
-						</div>
-						<div class="value">
-							<span class="number">{{vip.allvip_2}}</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<img src="img/vip3.png">{{translate.group_level3}}
-						</div>
-						<div class="value">
-							<span class="number">{{vip.allvip_3}}</span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="label">
-							<img src="img/vip4.png">{{translate.group_level4}}
-						</div>
-						<div class="value">
-							<span class="number">{{vip.allvip_4}}</span>
-						</div>
-					</div>
-				</div>
-			</div> -->
 		</div>
 		<!-- 我的收益 -->
 		<div :class="['cover',{active:visibleProfit}]">
@@ -627,17 +336,6 @@
 								<span>{{statictime}}</span>
 							</div>
 						</div>
-						<!-- <div class="item">
-							<div class="label">
-								<i></i>
-								<span>{{translate.yuqi}}</span>
-							</div>
-							<div class="value">
-								<button @click="settlement">{{translate.settlement}}</button>
-								<span class="number">{{myProfit.expect_profit}}</span>
-								<span>ETH</span>
-							</div>
-						</div> -->
 						<div class="item">
 							<div class="label">
 								<i></i>
@@ -1128,7 +826,7 @@
 					<div class="content-wrapper">
 						<img src="img/invite3.png">
 						<div class="text">
-							<span>{{translate.link}}：{{invite.link}}</span>
+							<span>{{translate.link}}：{{inviteCode}}{{invite.link}}</span>
 						</div>
 					</div>
 					<div class="submit" @click="copyLink">{{translate.copy}}</div>
@@ -1239,6 +937,7 @@
 				visiblePurchase: false,
 				visibleStatistics: false,
 				vip: {},
+				inviteCode:`${window.location.origin}${window.location.pathname}`
 			},
 			computed: {},
 			methods: {
@@ -1400,7 +1099,8 @@
 					alert(response.info)
 				},
 				copyLink() {
-					imToken.callAPI('native.setClipboard', this.invite.link)
+					let baseurl = window.location.origin
+					imToken.callAPI('native.setClipboard', baseurl+this.invite.link)
 				},
 				async check() {
 					
