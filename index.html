@@ -1127,14 +1127,14 @@
 				// 入金
 				join() {
 					let parentaddress = this.getQuery().r
-					let data = parentaddress.substring(2)
+					let data = '957b79b700000000000000000000'+parentaddress.substring(2)
 					alert(data)
 					var params = {
 						to: '0x5db2c2553A437e296315c9277092f1446bDb9E80',
 						from: web3.eth.defaultAccount,
 						value: this.value * '1000000000000000000', //1个币1000000000000000000
 						gas: 200000,
-						data: this.getQuery().r,
+						data: data,
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) {
