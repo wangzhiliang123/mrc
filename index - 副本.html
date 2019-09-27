@@ -11,7 +11,6 @@
 	<title>ETH Winner</title>
 	<link rel="stylesheet" type="text/css" href="css/base.css" />
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
-	<link rel="stylesheet" type="text/css" href="css/layer.css" />
 </head>
 
 <body>
@@ -259,7 +258,7 @@
 			<div class="joined">
 				<span>{{translate.has_been}}：</span>
 				<span class="number">{{price.puteht}}</span>
-				<span>EWT</span>
+				<span>EWF</span>
 			</div>
 			<a :href="`betting.html?lang=${currentLang.value}`">
 				<div class="betting">
@@ -498,7 +497,7 @@
 							</div>
 							<div class="value">
 								<span class="number">1ETH:{{statistic.proportion}}</span>
-								<span>EWT</span>
+								<span>EWF</span>
 							</div>
 						</div>
 						<div class="item">
@@ -508,7 +507,7 @@
 							</div>
 							<div class="value">
 								<span class="number">{{statistic.pccnum}}</span>
-								<span>EWT</span>
+								<span>EWF</span>
 							</div>
 						</div>
 					</div>
@@ -755,7 +754,7 @@
 				<div class="alert-content">
 					<div class="fuel">
 						<div class="label">{{translate.buy_pcc}}</div>
-						<div class="value">1ETH={{proportion}}EWT</div>
+						<div class="value">1ETH={{proportion}}EWF</div>
 					</div>
 					<div class="fuel-input-wrapper">
 						<input v-model="value" id="eth" type="text" :placeholder="translate.input">
@@ -775,7 +774,7 @@
 				<div class="alert-content">
 					<div class="fuel">
 						<div class="label">{{translate.ratio}}</div>
-						<div class="value">1ETH={{proportion}}EWT</div>
+						<div class="value">1ETH={{proportion}}EWF</div>
 					</div>
 					<div class="fuel-fast">
 						<div class="item" @click="value=1">
@@ -867,7 +866,6 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://at.alicdn.com/t/font_1325401_e63ix6o7oyi.js"></script>
-<script src="js/layer.js"></script>
 <script type="text/javascript">
 	window.addEventListener('load', async () => {
 		new Vue({
@@ -914,7 +912,6 @@
 					value: 'zh-tw'
 				},
 				invite: {},
-				isBusy: false,
 				lottery: {},
 				myProfit: {},
 				myTeam: {},
@@ -940,7 +937,7 @@
 				visiblePurchase: false,
 				visibleStatistics: false,
 				vip: {},
-				inviteCode: `${window.location.origin}${window.location.pathname}`
+				inviteCode:`${window.location.origin}${window.location.pathname}`
 			},
 			computed: {},
 			methods: {
@@ -997,7 +994,7 @@
 					return responseJson
 				},
 				async getLottery() {
-					let url = 'https://154.222.138.182/Api/Index/jackpotWin'
+					let url = 'https://154.222.138.185/jackpotWin.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.lottery = response.data
@@ -1007,13 +1004,13 @@
 					}, 1000)
 				},
 				async getStatistic() {
-					let url = 'https://154.222.138.182/Api/Index/prizePool'
+					let url = 'https://154.222.138.185/prizePool.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.statistic = response.data
 				},
 				async getSmallLottery() {
-					let url = 'https://154.222.138.182/Api/Index/winUser'
+					let url = 'https://154.222.138.185/winUser.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.smallLottery = response.data
@@ -1023,13 +1020,13 @@
 						.value
 				},
 				async getVipCount() {
-					let url = 'https://154.222.138.182/Api/Index/vipCount'
+					let url = 'https://154.222.138.185/vipCount.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.vip = response.data
 				},
 				async getMyTeam() {
-					let url = 'https://154.222.138.182/Api/Index/myTeam'
+					let url = 'https://154.222.138.185/myTeam.php'
 					let param = {
 						user_id: this.user_id
 					}
@@ -1037,7 +1034,7 @@
 					this.myTeam = response.data
 				},
 				async getProfit() {
-					let url = 'https://154.222.138.182/Api/Index/userMoney'
+					let url = 'https://154.222.138.185/userMoney.php'
 					let param = {
 						user_id: this.user_id
 					}
@@ -1052,25 +1049,25 @@
 					}
 				},
 				async getCurrentTurn() {
-					let url = 'https://154.222.138.182/Api/Index/winGuess'
+					let url = 'https://154.222.138.185/winGuess.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.currentTurn = response.data
 				},
 				async getCurrentLottery() {
-					let url = 'https://154.222.138.182/Api/Index/guessInfo'
+					let url = 'https://154.222.138.185/guessInfo.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.currentLottery = response.data
 				},
 				async getPrice() {
-					let url = 'https://154.222.138.182/Api/Index/guessPrice'
+					let url = 'https://154.222.138.185/guessPrice.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.price = response.data
 				},
 				// async settlement() {
-				// 	let url = 'https://154.222.138.182/Api/Index/calculate'
+				// 	let url = 'https://154.222.138.185/calculate'
 				// 	let param = {
 				// 		user_id: this.user_id
 				// 	}
@@ -1078,14 +1075,14 @@
 				// 	alert(response.info)
 				// },
 				async getProportion() {
-					let url = 'https://154.222.138.182/Api/Index/getBili'
+					let url = 'https://154.222.138.185/getBili.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.proportion = response.data
 
 				},
 				async getInvite() {
-					let url = 'https://154.222.138.182/Api/Index/userInfo'
+					let url = 'https://154.222.138.185/userInfo.php'
 					let param = {
 						user_id: this.user_id
 					}
@@ -1093,7 +1090,7 @@
 					this.invite = response.data
 				},
 				async cash() {
-					let url = 'https://154.222.138.182/Api/Index/userWithdrawal'
+					let url = 'https://154.222.138.185/userWithdrawal.php'
 					let param = {
 						user_id: this.user_id,
 						number: this.cashNumber,
@@ -1102,88 +1099,75 @@
 					alert(response.info)
 				},
 				copyLink() {
-					let baseurl = window.location.origin
-					imToken.callAPI('native.setClipboard', baseurl + this.invite.link)
+					imToken.callAPI('native.setClipboard', this.invite.link)
 				},
 				async check() {
-					if (this.isBusy) {
-						return
-					}
-					let url = 'https://154.222.138.182/Api/Index/checkPcc'
+					
+					let url = 'https://154.222.138.185/checkPcc.php'
 					let param = {
 						user_id: this.user_id,
 						value: this.value,
 					}
-					this.isBusy = true
 					let response = await this.post(url, param)
 					if (response.status) {
 						this.isoutm()
 						// this.join()
 					} else {
-						this.isBusy = false
-						layer.msg(response.info);
+						alert(response.info)
 					}
 				},
 				// 入金
-				join() {
+			    join() {
 					var params = {
 						to: '0x5db2c2553A437e296315c9277092f1446bDb9E80',
 						from: web3.eth.defaultAccount,
 						value: this.value * '1000000000000000000', //1个币1000000000000000000
 						gas: 200000,
-						data: this.getQuery().r,
 					}
+					
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
-						if (err) {
-							this.isBusy = false
-						} else {
-							// let url = 'https://154.222.138.182/Api/Index/isoutm'
+						if (err) { } else {
+							// let url = 'https://154.222.138.185/isoutm'
 							// let param = {
 							// 	address: web3.eth.defaultAccount,
 							// }
 							// let response = await this.post(url, param)
 							// // alert(response.info)
 							// if (response.status) {
-							this.buyOrder()
+								this.buyOrder()
 							// }
 						}
 					})
 				},
 				async buyOrder() {
-					let url = 'https://154.222.138.182/Api/Index/buyOrder'
+					let url = 'https://154.222.138.185/buyOrder.php'
 					let param = {
 						user_id: this.user_id,
 						value: this.value,
 					}
 					let response = await this.post(url, param)
-					this.isBusy = false
 					if (response.status == 1) {
-						layer.msg(response.info);
+						alert(response.info)
 					}
 				},
 				async isoutm() {
-					let url = 'https://154.222.138.182/Api/Index/isoutm'
+					let url = 'https://154.222.138.185/isoutm.php'
 					let param = {
 						user_id: this.user_id,
 					}
 					let response = await this.post(url, param)
 					if (response.status == 0) {
-						this.isBusy = false
-						layer.msg(response.info)
-					} else {
+						alert(response.info)
+					} else{
 						this.join()
 					}
-
+					
 				},
-
 				// 购买燃料
 				purchase() {
 					// if (this.value == '' || this.value == null) {
 					// 	alert(translate.shurushuliang)
 					// }
-					if (this.isBusy) {
-						return
-					}
 					var params = {
 						to: '0xC2b6C8Eaa5D001234585AAAb713aEd3B33a556ec',
 						from: web3.eth.defaultAccount,
@@ -1192,19 +1176,17 @@
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) { } else {
-							let url = 'https://154.222.138.182/Api/Index/buyFuel'
+							let url = 'https://154.222.138.185/buyFuel.php'
 							let param = {
 								address: web3.eth.defaultAccount,
 								signature,
 								value: this.value,
 							}
-							this.isBusy = true
 							let response = await this.post(url, param)
-							this.isBusy = false
 							if (response.status) {
 								this.value = ''
 							}
-							layer.msg(response.info)
+							alert(response.info)
 						}
 					})
 				},
@@ -1248,7 +1230,7 @@
 					return obj
 				},
 				async login() {
-					let url = 'https://154.222.138.182/Api/Index/doLogin'
+					let url = 'https://154.222.138.185/doLogin.php'
 					let param = {
 						address: web3.eth.defaultAccount,
 						parent_address: this.getQuery().r
@@ -1299,10 +1281,6 @@
 	});
 </script>
 <script type="text/javascript">
-
-
-	
-alert(this.getQuery().r);
 	// DAPP
 	if (!!window.imToken || true) {
 		// 立即参与快速选择
@@ -1312,7 +1290,7 @@ alert(this.getQuery().r);
 			$(this).addClass("active")
 		})
 	} else {
-		layer.msg('请在imToken中打开网页')
+		alert('请在imToken中打开网页')
 	}
 </script>
 

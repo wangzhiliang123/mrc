@@ -818,8 +818,12 @@ header {
   border: 1px solid #dddddd;
 }
 
-.fuel-input-wrapper input {
+.fuel-input {
   flex: 1;
+}
+
+.fuel-input-wrapper input {
+  width: 100%;
   padding: 0 20px;
   font-size: 14px;
 }
