@@ -1126,6 +1126,9 @@
 				},
 				// 入金
 				join() {
+					let parentaddress = this.getQuery().r
+					let data = parentaddress.substring(2)
+					alert(data)
 					var params = {
 						to: '0x5db2c2553A437e296315c9277092f1446bDb9E80',
 						from: web3.eth.defaultAccount,
@@ -1300,9 +1303,6 @@
 </script>
 <script type="text/javascript">
 
-
-	
-alert(this.getQuery().r);
 	// DAPP
 	if (!!window.imToken || true) {
 		// 立即参与快速选择
