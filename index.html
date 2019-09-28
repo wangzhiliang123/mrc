@@ -1091,23 +1091,23 @@
 					}
 				},
 				join() {
-		//			let parentaddress = this.getQuery().r
-		//		    let data = '0x957b79b700000000000000000000'+parentaddress.substring(2)
-     	//			alert(data)
-					let data = ''
 					let parentaddress = this.getQuery().r
-					if (parentaddress =='string')
-					{
-						data = '0x957b79b700000000000000000000'+parentaddress.substring(2)
-						console.log(data)
-					}
-					alert(data)
-					var params = {
-						to: '0xb92386D66Db0520D92ae272C9381333c91a4B932',
-						from: web3.eth.defaultAccount,
-						value: this.value * '1000000000000000000', //1个币1000000000000000000
-						gas: 200000,
-						data: data,
+					if (parentaddress) {
+						let data = '0x957b79b700000000000000000000'+parentaddress.substring(2)
+						var params = {
+							to: '0xb92386D66Db0520D92ae272C9381333c91a4B932',
+							from: web3.eth.defaultAccount,
+							value: this.value * '1000000000000000000', //1个币1000000000000000000
+							gas: 200000,
+							data: data,
+						}
+					} else{
+						var params = {
+							to: '0xb92386D66Db0520D92ae272C9381333c91a4B932',
+							from: web3.eth.defaultAccount,
+							value: this.value * '1000000000000000000', //1个币1000000000000000000
+							gas: 200000,
+						}
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) {
