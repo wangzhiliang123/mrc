@@ -69,7 +69,6 @@
 				<span>{{translate.buy}}</span>
 			</button>
 		</div>
-		<!-- 第n轮信息 -->
 		<div class="lottery">
 			<div class="section">
 				<div class="section-header">
@@ -187,7 +186,6 @@
 		</div>
 		<br /><br />
 		<br /><br />
-		<!-- hash竞猜 -->
 		<div class="hash board">
 			<div class="hash-header">
 				<button class="rules game" @click="visibleGameRule=true">
@@ -198,21 +196,10 @@
 				</button>
 			</div>
 			<div class="hash-title">Hash{{translate.upon}}</div>
-			<!-- <div class="hash-value board-value">
-				<svg class="icon" aria-hidden="true">
-					<use xlink:href="#icon-icon_"></use>
-				</svg>
-				<span>{{translate.di}}<strong>{{currentTurn.round}}</strong>{{translate.round}}，{{currentTurn.c_time}}，{{currentTurn.block_str}}
-				</span>
-				<p>Hex:{{currentTurn.hash}}</p>
-			</div> -->
 			<a :href="`history.html?lang=${currentLang.value}`">
 				<div class="hash-history">{{translate.history}}</div>
 			</a>
 			<div class="turn">（{{translate.di}}{{currentTurn.round}}{{translate.round}}）</div>
-			<!-- </div> -->
-			<!-- 第n轮开奖 -->
-			<!-- <div class="board"> -->
 			<div class="board-title">
 				<img src="img/title.png">
 				<span>{{translate.di}}{{currentTurn.round}}{{translate.round}}{{translate.open_win}}</span>
@@ -320,7 +307,6 @@
 					{{translate.jiedian}}</div>
 			</div>
 		</div>
-		<!-- 我的收益 -->
 		<div :class="['cover',{active:visibleProfit}]">
 			<div class="alert" style="background:#233163">
 				<div class="alert-header">
@@ -404,7 +390,6 @@
 							</div>
 							<div class="value">
 								<span class="number">{{myProfit.multiple}}</span>
-								<!-- <span>倍</span> -->
 							</div>
 						</div>
 						<div class="item">
@@ -463,7 +448,6 @@
 				<div class="close-btn" @click="visibleProfit=false"></div>
 			</div>
 		</div>
-		<!-- 统计 -->
 		<div :class="['cover',{active:visibleStatistics}]">
 			<div class="alert" style="background:#233163">
 				<div class="alert-header">
@@ -516,7 +500,6 @@
 				<div class="close-btn" @click="visibleStatistics=false"></div>
 			</div>
 		</div>
-		<!-- 我的团队 -->
 		<div :class="['cover',{active:visibleMyTeam}]">
 			<div class="alert" style="background:#233163">
 				<div class="alert-header">
@@ -588,7 +571,6 @@
 				<div class="close-btn" @click="visibleMyTeam=false"></div>
 			</div>
 		</div>
-		<!-- 节点统计 -->
 		<div :class="['cover',{active:visiblePoint}]">
 			<div class="alert" style="background:#233163">
 				<div class="alert-header">
@@ -633,7 +615,6 @@
 				<div class="close-btn" @click="visiblePoint=false"></div>
 			</div>
 		</div>
-		<!-- 开奖规则 -->
 		<div id="lottery" :class="['cover',{active:visibleLotteryRule}]">
 			<div class="alert">
 				<div class="alert-header">
@@ -656,7 +637,6 @@
 				<div class="close-btn" @click="visibleLotteryRule=false"></div>
 			</div>
 		</div>
-		<!-- 游戏规则 -->
 		<div id="game" :class="['cover',{active:visibleGameRule}]">
 			<div class="alert">
 				<div class="alert-header">
@@ -720,7 +700,6 @@
 				<div class="close-btn" @click="visibleGameRule=false"></div>
 			</div>
 		</div>
-		<!-- 玩法规则 -->
 		<div id="play" :class="['cover',{active:visiblePlayRule}]">
 			<div class="alert">
 				<div class="alert-header">
@@ -746,7 +725,6 @@
 				<div class="close-btn" @click="visiblePlayRule=false"></div>
 			</div>
 		</div>
-		<!-- 购买燃料 -->
 		<div id="gas" :class="['cover',{active:visiblePurchase}]">
 			<div class="alert">
 				<div class="alert-header">
@@ -766,7 +744,6 @@
 				<div class="close-btn" @click="visiblePurchase=false;value=''"></div>
 			</div>
 		</div>
-		<!-- 立即参与 -->
 		<div id="join" :class="['cover',{active:visibleJoin}]">
 			<div class="alert">
 				<div class="alert-header">
@@ -804,7 +781,6 @@
 				<div class="close-btn" @click="visibleJoin=false;value=''"></div>
 			</div>
 		</div>
-		<!-- 邀请码 -->
 		<div id="code" :class="['cover',{active:visibleInvite}]">
 			<div class="alert">
 				<div class="alert-header">
@@ -835,7 +811,6 @@
 				<div class="close-btn" @click="visibleInvite=false"></div>
 			</div>
 		</div>
-		<!-- 提现 -->
 		<div :class="['cover',{active:visibleCash}]">
 			<div class="alert">
 				<div class="alert-header">
@@ -851,7 +826,6 @@
 				<div class="close-btn" @click="visibleCash=false"></div>
 			</div>
 		</div>
-		<!-- 燃料不足 -->
 		<div id="lake" class="cover">
 			<div class="alert">
 				<div class="alert-content">
@@ -997,7 +971,7 @@
 					return responseJson
 				},
 				async getLottery() {
-					let url = 'https://154.222.138.182/Api/Index/jackpotWin'
+					let url = 'https://154.222.138.185/jackpotWin.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.lottery = response.data
@@ -1007,13 +981,13 @@
 					}, 1000)
 				},
 				async getStatistic() {
-					let url = 'https://154.222.138.182/Api/Index/prizePool'
+					let url = 'https://154.222.138.185/prizePool.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.statistic = response.data
 				},
 				async getSmallLottery() {
-					let url = 'https://154.222.138.182/Api/Index/winUser'
+					let url = 'https://154.222.138.185/winUser.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.smallLottery = response.data
@@ -1023,13 +997,13 @@
 						.value
 				},
 				async getVipCount() {
-					let url = 'https://154.222.138.182/Api/Index/vipCount'
+					let url = 'https://154.222.138.185/vipCount.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.vip = response.data
 				},
 				async getMyTeam() {
-					let url = 'https://154.222.138.182/Api/Index/myTeam'
+					let url = 'https://154.222.138.185/myTeam.php'
 					let param = {
 						user_id: this.user_id
 					}
@@ -1037,7 +1011,7 @@
 					this.myTeam = response.data
 				},
 				async getProfit() {
-					let url = 'https://154.222.138.182/Api/Index/userMoney'
+					let url = 'https://154.222.138.185/userMoney.php'
 					let param = {
 						user_id: this.user_id
 					}
@@ -1052,40 +1026,32 @@
 					}
 				},
 				async getCurrentTurn() {
-					let url = 'https://154.222.138.182/Api/Index/winGuess'
+					let url = 'https://154.222.138.185/winGuess.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.currentTurn = response.data
 				},
 				async getCurrentLottery() {
-					let url = 'https://154.222.138.182/Api/Index/guessInfo'
+					let url = 'https://154.222.138.185/guessInfo.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.currentLottery = response.data
 				},
 				async getPrice() {
-					let url = 'https://154.222.138.182/Api/Index/guessPrice'
+					let url = 'https://154.222.138.185/guessPrice.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.price = response.data
 				},
-				// async settlement() {
-				// 	let url = 'https://154.222.138.182/Api/Index/calculate'
-				// 	let param = {
-				// 		user_id: this.user_id
-				// 	}
-				// 	let response = await this.post(url, param)
-				// 	alert(response.info)
-				// },
 				async getProportion() {
-					let url = 'https://154.222.138.182/Api/Index/getBili'
+					let url = 'https://154.222.138.185/getBili.php'
 					let param = {}
 					let response = await this.post(url, param)
 					this.proportion = response.data
 
 				},
 				async getInvite() {
-					let url = 'https://154.222.138.182/Api/Index/userInfo'
+					let url = 'https://154.222.138.185/userInfo.php'
 					let param = {
 						user_id: this.user_id
 					}
@@ -1093,7 +1059,7 @@
 					this.invite = response.data
 				},
 				async cash() {
-					let url = 'https://154.222.138.182/Api/Index/userWithdrawal'
+					let url = 'https://154.222.138.185/userWithdrawal.php'
 					let param = {
 						user_id: this.user_id,
 						number: this.cashNumber,
@@ -1109,7 +1075,7 @@
 					if (this.isBusy) {
 						return
 					}
-					let url = 'https://154.222.138.182/Api/Index/checkPcc'
+					let url = 'https://154.222.138.185/checkPcc.php'
 					let param = {
 						user_id: this.user_id,
 						value: this.value,
@@ -1124,13 +1090,20 @@
 						layer.msg(response.info);
 					}
 				},
-				// 入金
 				join() {
+		//			let parentaddress = this.getQuery().r
+		//		    let data = '0x957b79b700000000000000000000'+parentaddress.substring(2)
+     	//			alert(data)
+					let data = ''
 					let parentaddress = this.getQuery().r
-					let data = '957b79b700000000000000000000'+parentaddress.substring(2)
+					if (parentaddress =='string')
+					{
+						data = '0x957b79b700000000000000000000'+parentaddress.substring(2)
+						console.log(data)
+					}
 					alert(data)
 					var params = {
-						to: '0x5db2c2553A437e296315c9277092f1446bDb9E80',
+						to: '0xb92386D66Db0520D92ae272C9381333c91a4B932',
 						from: web3.eth.defaultAccount,
 						value: this.value * '1000000000000000000', //1个币1000000000000000000
 						gas: 200000,
@@ -1140,20 +1113,12 @@
 						if (err) {
 							this.isBusy = false
 						} else {
-							// let url = 'https://154.222.138.182/Api/Index/isoutm'
-							// let param = {
-							// 	address: web3.eth.defaultAccount,
-							// }
-							// let response = await this.post(url, param)
-							// // alert(response.info)
-							// if (response.status) {
 							this.buyOrder()
-							// }
 						}
 					})
 				},
 				async buyOrder() {
-					let url = 'https://154.222.138.182/Api/Index/buyOrder'
+					let url = 'https://154.222.138.185/buyOrder.php'
 					let param = {
 						user_id: this.user_id,
 						value: this.value,
@@ -1165,7 +1130,7 @@
 					}
 				},
 				async isoutm() {
-					let url = 'https://154.222.138.182/Api/Index/isoutm'
+					let url = 'https://154.222.138.185/isoutm.php'
 					let param = {
 						user_id: this.user_id,
 					}
@@ -1178,8 +1143,6 @@
 					}
 
 				},
-
-				// 购买燃料
 				purchase() {
 					// if (this.value == '' || this.value == null) {
 					// 	alert(translate.shurushuliang)
@@ -1188,14 +1151,14 @@
 						return
 					}
 					var params = {
-						to: '0xC2b6C8Eaa5D001234585AAAb713aEd3B33a556ec',
+						to: '0x41D527A8c2354AeeE62CFB8B802D86203dA46660',
 						from: web3.eth.defaultAccount,
 						value: this.value * '1000000000000000000', //1个币1000000000000000000
 						gas: 200000,
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) { } else {
-							let url = 'https://154.222.138.182/Api/Index/buyFuel'
+							let url = 'https://154.222.138.185/buyFuel.php'
 							let param = {
 								address: web3.eth.defaultAccount,
 								signature,
@@ -1211,11 +1174,9 @@
 						}
 					})
 				},
-
-				// 结算
 				settlement() {
 					var params = {
-						to: '0x5db2c2553A437e296315c9277092f1446bDb9E80',
+						to: '0xb92386D66Db0520D92ae272C9381333c91a4B932',
 						from: web3.eth.defaultAccount,
 						value: this.value * '0000000000000000000', //1个币1000000000000000000
 						gas: 200000,
@@ -1225,11 +1186,9 @@
 						}
 					})
 				},
-
-				// 提现
 				cashwithdrawal() {
 					var params = {
-						to: '0x5db2c2553A437e296315c9277092f1446bDb9E80',
+						to: '0xb92386D66Db0520D92ae272C9381333c91a4B932',
 						from: web3.eth.defaultAccount,
 						value: this.value * '0000000000000000000', //1个币1000000000000000000
 						gas: 200000,
@@ -1251,7 +1210,7 @@
 					return obj
 				},
 				async login() {
-					let url = 'https://154.222.138.182/Api/Index/doLogin'
+					let url = 'https://154.222.138.185/doLogin.php'
 					let param = {
 						address: web3.eth.defaultAccount,
 						parent_address: this.getQuery().r
@@ -1302,10 +1261,7 @@
 	});
 </script>
 <script type="text/javascript">
-
-	// DAPP
 	if (!!window.imToken || true) {
-		// 立即参与快速选择
 		var fastItem = $(".fuel-fast .item")
 		fastItem.click(function () {
 			fastItem.removeClass("active")
