@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<!-- <meta http-equiv="Pragma" content="no-cache" /> -->
 	<meta charset="UTF-8" />
@@ -147,7 +146,7 @@
 					return obj
 				},
 				async getProfit() {
-					let url = 'https://154.222.138.182/Api/Index/userDayWin'
+					let url = 'https://154.222.138.185/userDayWin.php'
 					let param = {
 						user_id: this.user_id,
 					}
@@ -155,7 +154,7 @@
 					this.profit = response.data
 				},
 				async login() {
-					let url = 'https://154.222.138.182/Api/Index/doLogin'
+					let url = 'https://154.222.138.185/doLogin.php'
 					let param = {
 						address: web3.eth.defaultAccount,
 						parent_address: this.getQuery().r

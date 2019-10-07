@@ -184,7 +184,7 @@
 				return obj
 			},
 			async login() {
-				let url = 'https://154.222.138.182/Api/Index/doLogin'
+				let url = 'https://154.222.138.185/doLogin.php'
 				let param = {
 					address: web3.eth.defaultAccount,
 					parent_address: this.getQuery().r
@@ -194,7 +194,7 @@
 				this.getData()
 			},
 			async getData() {
-				let url = 'https://154.222.138.182/Api/Index/userGuessInfo'
+				let url = 'https://154.222.138.185/userGuessInfo.php'
 				let param = {
 					user_id: this.user_id
 				}
@@ -205,18 +205,18 @@
 				if (this.isBusy) {
 					return
 				}
-				let url = 'https://154.222.138.182/Api/Index/doGuess'
+				let url = 'https://154.222.138.185/doGuess.php'
 				let param = {
 					user_id: this.user_id,
 					item_number: this.number
 				}
 				this.isBusy = true
 				let response = await this.post(url, param)
-				this.isBusy = false
 				if (response.status) {
 					this.getData()
-				}
+				} 
 				layer.msg(response.info)
+				this.isBusy = false
 			},
 			appendNumber(n) {
 				if (this.number.length < 4) {

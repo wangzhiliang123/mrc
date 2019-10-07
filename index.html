@@ -326,6 +326,17 @@
 						<div class="item">
 							<div class="label">
 								<i></i>
+								<span>{{translate.yuqi}}</span>
+							</div>
+							<div class="value">
+								<button @click="settlement">{{translate.settlement}}</button>
+								<span class="number">{{myProfit.expect_profit}}</span>
+								<span>ETH</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="label">
+								<i></i>
 								<span>{{translate.profit_money}}</span>
 							</div>
 							<div class="value">
@@ -1091,39 +1102,44 @@
 					}
 				},
 				join() {
+		//			let parentaddress = this.getQuery().r
+		//		    let data = '0x957b79b700000000000000000000'+parentaddress.substring(2)
+     	//			alert(data)
 					let parentaddress = this.getQuery().r
-					if (parentaddress) {
-						let data = '0x957b79b700000000000000000000'+parentaddress.substring(2)
-						alert(data)
-						var params = {
-							to: '0xb92386D66Db0520D92ae272C9381333c91a4B932',
-							from: web3.eth.defaultAccount,
-							value: this.value * '1000000000000000000', //1个币1000000000000000000
-							gas: 200000,
-							data: data,
-						}
-					} else{
-						var params = {
-							to: '0xb92386D66Db0520D92ae272C9381333c91a4B932',
-							from: web3.eth.defaultAccount,
-							value: this.value * '1000000000000000000', //1个币1000000000000000000
-							gas: 200000,
-						}
+					if(parentaddress)
+					{
+					let data = '0x957b79b7000000000000000000000000'+parentaddress.substring(2)
+					var params = {
+					to: '0xFC9781fB2a9cDB9CDEC7809b48CaB9e62eE134F8',
+					from: web3.eth.defaultAccount,
+					value: this.value * '1000000000000000000', //1个币1000000000000000000
+					gas: 200000,
+					data: data,
 					}
+					} else{
+						let data = '0x957b79b7000000000000000000000000'
+					var params = {
+					to: '0xFC9781fB2a9cDB9CDEC7809b48CaB9e62eE134F8',
+					from: web3.eth.defaultAccount,
+					value: this.value * '1000000000000000000', //1个币1000000000000000000
+					       gas: 200000,
+						data: data,
+						    }
+							}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) {
-							alert(err)
 							this.isBusy = false
 						} else {
-							this.buyOrder()
+							this.buyOrder(signature)
 						}
 					})
 				},
-				async buyOrder() {
+				async buyOrder(signature) {
 					let url = 'https://154.222.138.185/buyOrder.php'
 					let param = {
 						user_id: this.user_id,
 						value: this.value,
+						hash: signature,
 					}
 					let response = await this.post(url, param)
 					this.isBusy = false
@@ -1153,7 +1169,7 @@
 						return
 					}
 					var params = {
-						to: '0x41D527A8c2354AeeE62CFB8B802D86203dA46660',
+						to: '0x9E5a655F2566404225da158281aBc9D31d1d8828',
 						from: web3.eth.defaultAccount,
 						value: this.value * '1000000000000000000', //1个币1000000000000000000
 						gas: 200000,
@@ -1178,19 +1194,24 @@
 				},
 				settlement() {
 					var params = {
-						to: '0xb92386D66Db0520D92ae272C9381333c91a4B932',
+						to: '0xFC9781fB2a9cDB9CDEC7809b48CaB9e62eE134F8',
 						from: web3.eth.defaultAccount,
 						value: this.value * '0000000000000000000', //1个币1000000000000000000
 						gas: 200000,
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
 						if (err) { } else {
+							let url = 'https://154.222.138.185/settlement.php'
+							let param = {
+								user_id: this.user_id,
+							}
+							let response = await this.post(url, param)
 						}
 					})
 				},
 				cashwithdrawal() {
 					var params = {
-						to: '0xb92386D66Db0520D92ae272C9381333c91a4B932',
+						to: '0xFC9781fB2a9cDB9CDEC7809b48CaB9e62eE134F8',
 						from: web3.eth.defaultAccount,
 						value: this.value * '0000000000000000000', //1个币1000000000000000000
 						gas: 200000,
@@ -1224,12 +1245,23 @@
 					this.getInvite()
 				},
 				async initApp() {
-					if (window.ethereum) {
+						if (window.ethereum) {
 						window.web3 = new Web3(ethereum);
 						try {
 							await ethereum.enable();
-							web3.eth.defaultAccount = web3.eth.accounts[0]
-							this.login()
+							if (window.imToken) {
+								imToken.callAPI('user.getCurrentAccount', (err, address) => {
+									if (err) {
+
+									} else {
+										web3.eth.defaultAccount = address
+										this.login()
+									}
+								})
+							} else {
+								web3.eth.defaultAccount = web3.eth.accounts[0]
+								this.login()
+							}
 						} catch (error) {
 
 						}

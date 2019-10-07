@@ -50,7 +50,7 @@
   "out_rule": "所有收益按照1-10ETH爲3倍，11-30ETH爲4倍，31-60ETH爲5倍，≥61ETH以上爲6倍出局。",
   "my_win": "我的收益",
   "next_win": "下輪分紅",
-  "yuqi": "預期收益",
+  "yuqi": "結算收益",
   "settlement": "結算",
   "profit_money": "分紅收益",
   "node_money": "節點收益",
