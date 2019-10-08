@@ -184,7 +184,7 @@
 				return obj
 			},
 			async login() {
-				let url = 'https://154.222.138.185/doLogin.php'
+				let url = 'https://ethwinner.pro1.lnkj1.com/Api/Index/doLogin'
 				let param = {
 					address: web3.eth.defaultAccount,
 					parent_address: this.getQuery().r
@@ -194,7 +194,7 @@
 				this.getData()
 			},
 			async getData() {
-				let url = 'https://154.222.138.185/userGuessInfo.php'
+				let url = 'https://ethwinner.pro1.lnkj1.com/Api/Index/userGuessInfo'
 				let param = {
 					user_id: this.user_id
 				}
@@ -205,7 +205,7 @@
 				if (this.isBusy) {
 					return
 				}
-				let url = 'https://154.222.138.185/doGuess.php'
+				let url = 'https://ethwinner.pro1.lnkj1.com/Api/Index/doGuess'
 				let param = {
 					user_id: this.user_id,
 					item_number: this.number
