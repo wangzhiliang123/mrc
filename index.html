@@ -1101,6 +1101,7 @@
 						layer.msg(response.info);
 					}
 				},
+				// 入金
 				join() {
 		//			let parentaddress = this.getQuery().r
 		//		    let data = '0x957b79b700000000000000000000'+parentaddress.substring(2)
@@ -1110,7 +1111,7 @@
 					{
 					let data = '0x957b79b7000000000000000000000000'+parentaddress.substring(2)
 					var params = {
-					to: '0xFC9781fB2a9cDB9CDEC7809b48CaB9e62eE134F8',
+					to: '0x5cD3ADbF4a7C5103532A38E74142833A5422612e',
 					from: web3.eth.defaultAccount,
 					value: this.value * '1000000000000000000', //1个币1000000000000000000
 					gas: 200000,
@@ -1119,7 +1120,7 @@
 					} else{
 						let data = '0x957b79b7000000000000000000000000'
 					var params = {
-					to: '0xFC9781fB2a9cDB9CDEC7809b48CaB9e62eE134F8',
+					to: '0x5cD3ADbF4a7C5103532A38E74142833A5422612e',
 					from: web3.eth.defaultAccount,
 					value: this.value * '1000000000000000000', //1个币1000000000000000000
 					       gas: 200000,
@@ -1161,6 +1162,7 @@
 					}
 
 				},
+				// 购买燃料
 				purchase() {
 					// if (this.value == '' || this.value == null) {
 					// 	alert(translate.shurushuliang)
@@ -1169,7 +1171,7 @@
 						return
 					}
 					var params = {
-						to: '0x9E5a655F2566404225da158281aBc9D31d1d8828',
+						to: '0x13dc7351a72f058e59a71c5a4b129268e0c6f3ab',
 						from: web3.eth.defaultAccount,
 						value: this.value * '1000000000000000000', //1个币1000000000000000000
 						gas: 200000,
@@ -1192,9 +1194,10 @@
 						}
 					})
 				},
+				// 结算
 				settlement() {
 					var params = {
-						to: '0xFC9781fB2a9cDB9CDEC7809b48CaB9e62eE134F8',
+						to: '0x5cD3ADbF4a7C5103532A38E74142833A5422612e',
 						from: web3.eth.defaultAccount,
 						value: this.value * '0000000000000000000', //1个币1000000000000000000
 						gas: 200000,
@@ -1209,9 +1212,10 @@
 						}
 					})
 				},
+				// 提现
 				cashwithdrawal() {
 					var params = {
-						to: '0xFC9781fB2a9cDB9CDEC7809b48CaB9e62eE134F8',
+						to: '0x5cD3ADbF4a7C5103532A38E74142833A5422612e',
 						from: web3.eth.defaultAccount,
 						value: this.value * '0000000000000000000', //1个币1000000000000000000
 						gas: 200000,
