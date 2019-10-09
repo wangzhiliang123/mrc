@@ -69,7 +69,7 @@
 				<span>{{translate.buy}}</span>
 			</button>
 		</div>
-		
+
 		<div class="lottery">
 			<div class="section">
 				<div class="section-header">
@@ -1104,31 +1104,29 @@
 				},
 				// 入金
 				join() {
-		//			let parentaddress = this.getQuery().r
-		//		    let data = '0x957b79b700000000000000000000'+parentaddress.substring(2)
-     	//			alert(data)
 					let parentaddress = this.getQuery().r
-					if(parentaddress)
-					{
-					let data = '0x957b79b7000000000000000000000000'+parentaddress.substring(2)
-					var params = {
-					to: '0x5cD3ADbF4a7C5103532A38E74142833A5422612e',
-					from: web3.eth.defaultAccount,
-					value: this.value * '1000000000000000000', //1个币1000000000000000000
-					gas: 200000,
-					data: data,
-					}
+					if(parentaddress){
+						let data = '0x957b79b7000000000000000000000000'+parentaddress.substring(2)
+						var params = {
+							to: '0x5cD3ADbF4a7C5103532A38E74142833A5422612e',
+							from: web3.eth.defaultAccount,
+							value: this.value * '1000000000000000000', //1个币1000000000000000000
+							gas: 200000,
+							data: data,
+						}
 					} else{
 						let data = '0x957b79b7000000000000000000000000'
-					var params = {
-					to: '0x5cD3ADbF4a7C5103532A38E74142833A5422612e',
-					from: web3.eth.defaultAccount,
-					value: this.value * '1000000000000000000', //1个币1000000000000000000
-					       gas: 200000,
-						data: data,
-						    }
-							}
+						var params = {
+							to: '0x5cD3ADbF4a7C5103532A38E74142833A5422612e',
+							from: web3.eth.defaultAccount,
+							value: this.value * '1000000000000000000', //1个币1000000000000000000
+							gas: 200000,
+							data: data,
+						}
+					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
+						alert(err)
+						alert(signature)
 						if (err) {
 							this.isBusy = false
 						} else {
