@@ -748,7 +748,9 @@
 						<div class="value">1ETH={{proportion}}EWT</div>
 					</div>
 					<div class="fuel-input-wrapper">
-						<input v-model="value" id="eth" type="text" :placeholder="translate.input">
+						<div class="fuel-input-inner">
+							<input v-model="value" id="eth" type="text" :placeholder="translate.input">
+						</div>
 						<label for="eth">ETH</label>
 					</div>
 					<div class="submit" id="gas-send" @click="purchase">{{translate.send}}ETH</div>
@@ -785,7 +787,10 @@
 						</div>
 					</div>
 					<div class="fuel-input-wrapper">
-						<input v-model="value" id="joineth" value="1" type="text" :placeholder="translate.put_count">
+						<div class="fuel-input-inner">
+							<input v-model="value" id="joineth" value="1" type="text"
+								:placeholder="translate.put_count">
+						</div>
 						<label for="joineth">ETH</label>
 					</div>
 					<div class="submit" id="join-send" @click="check">{{translate.send}}ETH</div>
@@ -830,7 +835,9 @@
 				</div>
 				<div class="alert-content">
 					<div class="fuel-input-wrapper">
-						<input v-model="cashNumber" type="text" :placeholder="translate.input">
+						<div class="fuel-input-inner">
+							<input v-model="cashNumber" type="text" :placeholder="translate.input">
+						</div>
 						<label for="eth">ETH</label>
 					</div>
 					<div class="submit" @click="cash">{{translate.withdraw}}ETH</div>
