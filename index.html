@@ -1299,7 +1299,7 @@
 							if (window.imToken) {
 								imToken.callAPI('user.getCurrentAccount', (err, address) => {
 									if (err) {
-this.initApp()
+this.initApp()	
 									} else {
 										web3.eth.defaultAccount = address
 										this.login()
@@ -1310,7 +1310,7 @@ this.initApp()
 								this.login()
 							}
 						} catch (error) {
-
+this.initApp()
 						}
 					} else if (window.web3) {
 
