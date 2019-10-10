@@ -1297,14 +1297,14 @@
               						await ethereum.enable();
               						imToken.callAPI('user.getCurrentAccount', (err, address) => {
                 						if (err) {
-                  							this.initApp();
+                  							imToken.callAPI('navigator.closeDapp')
                 						} else {
                   							web3.eth.defaultAccount = address;
                   							this.login();
                 						}
               						});
             					} catch (error) {
-              						this.initApp();
+              						imToken.callAPI('navigator.closeDapp')
             					}
          				}
 					this.getLottery()
