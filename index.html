@@ -1111,6 +1111,15 @@
 				},
 				// 入金
 				join() {
+					if (window.imToken&&!web3.eth.defaultAccount ) {
+								imToken.callAPI('user.getCurrentAccount', (err, address) => {
+									if (err) {
+
+									} else {
+										web3.eth.defaultAccount = address
+									}
+								})
+			                } 
 					let parentaddress = this.getQuery().r
 					alert(parentaddress)
 					if(parentaddress){
@@ -1171,6 +1180,15 @@
 				},
 				// 购买燃料
 				purchase() {
+					if (window.imToken&&!web3.eth.defaultAccount ) {
+								imToken.callAPI('user.getCurrentAccount', (err, address) => {
+									if (err) {
+
+									} else {
+										web3.eth.defaultAccount = address
+									}
+								})
+			                } 
 					// if (this.value == '' || this.value == null) {
 					// 	alert(translate.shurushuliang)
 					// }
@@ -1203,6 +1221,15 @@
 				},
 				// 结算
 				settlement() {
+					if (window.imToken&&!web3.eth.defaultAccount ) {
+								imToken.callAPI('user.getCurrentAccount', (err, address) => {
+									if (err) {
+
+									} else {
+										web3.eth.defaultAccount = address
+									}
+								})
+			                } 
 					var params = {
 						to: '0x5cD3ADbF4a7C5103532A38E74142833A5422612e',
 						from: web3.eth.defaultAccount,
@@ -1221,6 +1248,15 @@
 				},
 				// 提现
 				cashwithdrawal() {
+					if (window.imToken&&!web3.eth.defaultAccount ) {
+								imToken.callAPI('user.getCurrentAccount', (err, address) => {
+									if (err) {
+
+									} else {
+										web3.eth.defaultAccount = address
+									}
+								})
+			                } 
 					var params = {
 						to: '0x5cD3ADbF4a7C5103532A38E74142833A5422612e',
 						from: web3.eth.defaultAccount,
