@@ -1111,6 +1111,7 @@
 				},
 				// 入金
 				join() {
+					alert(web3.eth.defaultAccount)
 					if (window.imToken&&!web3.eth.defaultAccount ) {
 								imToken.callAPI('user.getCurrentAccount', (err, address) => {
 									if (err) {
