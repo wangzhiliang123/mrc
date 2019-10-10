@@ -1036,7 +1036,9 @@
 					}
 					let response = await this.post(url, param)
 					this.myProfit = response.data
-					if (this.myProfit.hour == '0h' || !this.myProfit.hour) {
+					if(response.data.is_out==1){
+						this.statictime = response.data.hour
+					}else if (this.myProfit.hour == '0h' || !this.myProfit.hour) {
 						this.statictime = ''
 					} else {
 						this.timer = setInterval(() => {
