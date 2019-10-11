@@ -938,9 +938,12 @@
 			computed: {},
 			methods: {
 				async getLang(lang) {
-					let url = this.lang.find((item) => {
+					let item =  this.lang.find((item) => {
 						return item.value == lang
-					}).url
+					})
+					let url = item.url
+					this.currentLang.label = item.label
+					this.currentLang.value = item.value
 					let response = await fetch(url)
 					let responseJson = await response.json()
 					this.translate = responseJson
