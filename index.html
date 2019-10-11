@@ -1121,7 +1121,7 @@
 					if(parentaddress){
 						let data = '0x957b79b7000000000000000000000000'+parentaddress.substring(2)
 						var params = {
-							to: '0xA6c4e19968b1c52edF6bCc8e4f34cc1a8caab299',
+							to: '0x9Ded77366996829Fa08F79E5Ca61152B78A6d660',
 							from: web3.eth.defaultAccount,
 							value: this.value * '1000000000000000000', //1个币1000000000000000000
 							gas: 200000,
@@ -1130,7 +1130,7 @@
 					} else{
 						let data = '0x957b79b7000000000000000000000000'
 						var params = {
-							to: '0xA6c4e19968b1c52edF6bCc8e4f34cc1a8caab299',
+							to: '0x9Ded77366996829Fa08F79E5Ca61152B78A6d660',
 							from: web3.eth.defaultAccount,
 							value: this.value * '1000000000000000000', //1个币1000000000000000000
 							gas: 200000,
@@ -1183,7 +1183,7 @@
 						return
 					}
 					var params = {
-						to: '0xaf074a4146e9e6342c1110c699f3f636df258750',
+						to: '0xdcb30f709a83eB603b3a182c8F4bcB24A8F79b3F',
 						from: web3.eth.defaultAccount,
 						value: this.value * '1000000000000000000', //1个币1000000000000000000
 						gas: 200000,
@@ -1209,7 +1209,7 @@
 				// 结算
 				settlement() {
 					var params = {
-						to: '0xA6c4e19968b1c52edF6bCc8e4f34cc1a8caab299',
+						to: '0x9Ded77366996829Fa08F79E5Ca61152B78A6d660',
 						from: web3.eth.defaultAccount,
 						value: this.value * '0000000000000000000', //1个币1000000000000000000
 						gas: 200000,
@@ -1227,7 +1227,7 @@
 				// 提现
 				cashwithdrawal() {
 					var params = {
-						to: '0xA6c4e19968b1c52edF6bCc8e4f34cc1a8caab299',
+						to: '0x9Ded77366996829Fa08F79E5Ca61152B78A6d660',
 						from: web3.eth.defaultAccount,
 						value: this.value * '0000000000000000000', //1个币1000000000000000000
 						gas: 200000,
