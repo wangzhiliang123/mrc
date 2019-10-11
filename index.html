@@ -1117,7 +1117,7 @@
 				// 入金
 				join() {
 					let parentaddress = this.getQuery().r
-					alert(parentaddress)
+// 					alert(parentaddress)
 					if(parentaddress){
 						let data = '0x957b79b7000000000000000000000000'+parentaddress.substring(2)
 						var params = {
@@ -1138,8 +1138,8 @@
 						}
 					}
 					imToken.callAPI('transaction.tokenPay', params, async (err, signature) => {
-						alert(err)
-						alert(signature)
+// 						alert(err)
+// 						alert(signature)
 						if (err) {
 							this.isBusy = false
 						} else {
